@@ -1,0 +1,138 @@
+$m-color:#ff6d00;
+
+*{
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+@font-face {
+    font-family: "Lunacy";
+    src: url("@/assets/fonts/Lunacy.woff") format("woff");
+}
+
+
+html,body,#app{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background: rgb(59, 56, 56);
+}
+
+.content {
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.m-btn{
+    width: 120px;
+    height: 36px;
+    font-size: 28px;
+    font-family: "Lunacy",sans-serif;
+    padding-top: 7px;
+    color: $m-color;
+    background-color: black;
+    border: 0px solid $m-color;
+    display: block;
+    border-radius: 7px;
+    cursor: url("@/assets/image/Ghost.cur"), auto;
+    &:hover{
+        font-weight: bold;
+        box-shadow: 0 0 10px $m-color;
+    }
+    &:disabled{
+        cursor: no-drop;
+    }
+}
+
+.m-upload{
+    width: 120px;
+    height: 120px;
+    border: 2px dashed $m-color;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: url("@/assets/image/Ghost.cur"), auto;
+    input[type="file"]{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        z-index: 99;
+    }
+    &::after{
+        content: "";
+        background: url("@/assets/image/close.svg") no-repeat;
+        width: 40px;
+        height: 40px;
+        display: block;
+        transform: rotate(45deg);
+        transition: all .2s;
+        position: relative;
+        top: 3px;
+    }
+    &:hover{
+        &::after{
+            transform: scale(1.2) rotate(45deg);
+        }
+    }
+}
+
+input[type=file], /* FF, IE7+, chrome (except button) */
+input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
+    cursor: url("@/assets/image/Ghost.cur"), auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+}
+
+.form-item{
+    display: flex;
+    font-size: 24px;
+    font-family: "Lunacy",sans-serif;
+    color: $m-color;
+    margin-bottom: 10px;
+    span{
+        position: relative;
+        top: 7px;
+    }
+    label{
+        font-size: 24px;
+        font-family: "Lunacy",sans-serif;
+        padding-top: 7px;
+        color: $m-color;
+        min-width: 70px;
+        text-align: right;
+        margin-right: 5px;
+    }
+    input{
+        border-color: $m-color;
+        background-color:transparent;
+        color: $m-color;
+        font-size: 24px;
+        font-family: "Lunacy",sans-serif;
+        width: 80px;
+        text-align: center;
+        margin-right: 5px;
+    }
+}
+
+.el-loading-spinner{
+    .circular{
+        .path{
+            stroke: $m-color !important;
+        }
+    }
+    .el-loading-text{
+        color: $m-color !important;
+    }
+}
